@@ -16,7 +16,7 @@ public class CInfo {
         return clientId;
     }
 
-    public void setClientId(String clientId) {
+    public synchronized void setClientId(String clientId) {
         this.clientId = clientId;
     }
 
@@ -24,7 +24,7 @@ public class CInfo {
         return displayName;
     }
 
-    public void setDisplayName(String displayName) {
+    public synchronized void setDisplayName(String displayName) {
         this.displayName = displayName;
     }
 

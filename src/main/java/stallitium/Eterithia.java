@@ -38,7 +38,7 @@ public class Eterithia {
 
     }
 
-    void runServer() {
+    synchronized void runServer() {
         try (ServerSocket serverSocket = new ServerSocket(port)) {
             LOG.getLogger().info("Start server port : " + port);
             while (true) {
@@ -54,7 +54,7 @@ public class Eterithia {
         try {
             File file = new File(clientDataFilePath);
 
-            if (file.exists() && file.length() !=0) {
+            if (file.exists() && file.length() != 0) {
                 Map<String, CInfo> loadedMap = mapper.readValue(file, mapper.getTypeFactory().constructMapType(Map.class, String.class, CInfo.class));
                 clientMap.putAll(loadedMap);
                 LOG.getLogger().info("Loaded client data from file.");
